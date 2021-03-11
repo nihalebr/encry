@@ -9,9 +9,12 @@ def decrypt(passw,fe):
     with open(fe,'rb') as f:
         d=pickle.load(f)
     
-    data=d['Data']
-    fer = Fernet(key)
-    decrypted = fer.decrypt(data)
+    try:
+        data=d['Data']
+        fer = Fernet(key)
+        decrypted = fer.decrypt(data)
+    except:
+        print('Invaild Password retry once again.')  
     
     fn=[d['Name'],d['Ext']]
     fname=fn[0]+'_de.'+fn[1]

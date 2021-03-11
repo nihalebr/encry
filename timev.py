@@ -4,9 +4,8 @@ def tverify(etday,nd):
     tday=datetime.date.today()
     tdelta=datetime.timedelta(days=nd)
     etmday=etday+tdelta
-    tmday=tday+tdelta
     
-    if tmday==etmday:
-        return True
-    else:
+    if tday>=etmday :
         return False
+    else:
+        return True
