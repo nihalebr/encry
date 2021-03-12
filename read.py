@@ -1,7 +1,7 @@
 import pickle
 import datetime
 
-fpath=r'C:\Users\nihal\Desktop\art\rect833.enc'
+fpath=r'C:\Users\nihal\Desktop\art\anto.enc'
 with open(fpath,'rb') as f:
     data=pickle.load(f)
 fs=fpath.split('\\')
@@ -11,6 +11,4 @@ for i in range (1,len(fs)-1):
 f=[data['Name'],data['Ext']]
 fn=f[0]+'_de.'+f[1]
 fp='\\'.join((fp,fn))
-
-print(fn[0])
-print(fp)
+print(data)
