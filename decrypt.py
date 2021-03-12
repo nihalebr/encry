@@ -16,9 +16,15 @@ def decrypt(passw,fe):
     except:
         print('Invaild Password retry once again.')  
     
-    fn=[d['Name'],d['Ext']]
-    fname=fn[0]+'_de.'+fn[1]
-    with open(fname,'wb') as f:
+    fs=fe.split('\\')
+    fp=fs[0]
+    for i in range(1,len(fs)-1):
+        fp= '\\'.join((fp,fs[i]))
+    f=[d['Name'],d['Ext']]
+    fn=f[0]+'_de.'+f[1]
+    fp='\\'.join((fp,fn))
+
+    with open(fp,'wb') as f:
         f.write(decrypted)
 
 def verify(pasw,fn):

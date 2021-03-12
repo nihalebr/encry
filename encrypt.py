@@ -12,7 +12,11 @@ def encrypt(passw,fe,nd=0):
     fernet = Fernet(key)
     encrypted = fernet.encrypt(data)
 
-    fn=fe.split('.')
+    fs=fe.split('\\')
+    fn=fs[-1].split('.')
+    fp=fs[0]
+    for i in range(1,len(fs)-1):
+        fp= '\\'.join((fp,fs[i]))
     name=fn[0]
     ext=fn[1]
     
@@ -21,7 +25,8 @@ def encrypt(passw,fe,nd=0):
     
     file={'Date':date,'Time':time,'Data':encrypted,'Name':name,'Ext':ext,'Nd':nd}
     
-    fp=fn[0]+'.enc'
+    fname=fn[0]+'.enc'
+    fp='\\'.join((fp,fname))
     fname=r'{}'.format(fp)
     with open(fname,'wb') as f:
         f.write(pickle.dumps(file))

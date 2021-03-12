@@ -1,19 +1,16 @@
 import pickle
 import datetime
 
-with open(r'C:\Users\nihal\Desktop\art\rect833.enc','rb') as f:
+fpath=r'C:\Users\nihal\Desktop\art\rect833.enc'
+with open(fpath,'rb') as f:
     data=pickle.load(f)
+fs=fpath.split('\\')
+fp=fs[0]
+for i in range (1,len(fs)-1):
+    fp= '\\'.join((fp,fs[i]))
+f=[data['Name'],data['Ext']]
+fn=f[0]+'_de.'+f[1]
+fp='\\'.join((fp,fn))
 
-nd=data['Nd']
-etday=data['Date']
-date=datetime.date.today()
-
-tday=datetime.date.today()
-tdelta=datetime.timedelta(days=nd)
-etmday=etday+tdelta
-tmday=tday+tdelta
-
-print('\t',tmday)
-print('\t',etmday)
-print('\t',date)
-print(etmday==tmday)
+print(fn[0])
+print(fp)
