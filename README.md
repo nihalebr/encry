@@ -14,9 +14,12 @@
 
 ## Get it running
 ### Windows
- First download the package from git 
+ First download the package from git
+ 
  open cmd by pressing win+r then type cmd and enter
+ 
  change the location to package directory using cd command
+ 
  Then run the **_main_.py** in cmd
  ```bash
  python _main_.py
